@@ -24,7 +24,7 @@ public class Program
         if (n <= 1) return 1;
         return n * Factorial(n - 1);
     }
-    public static int Combinations(int n, int k)
+    public long Combinations(int n, int k)
     {
         if (k > n || n < 0 || k < 0)
         {
@@ -44,7 +44,7 @@ public class Program
 
 
 
-    public static double GeronArea(double a, double b, double c)
+    public double GeronArea(double a, double b, double c)
     {
         if (a <= 0 || b <= 0 || c <= 0) { return -1; }
         if (a + b <= c || a + c <= b || b + c <= a) { return -1; }
@@ -73,7 +73,7 @@ public class Program
 
 
 
-    public static double GetDistance(double v, double a, int t)
+    public double GetDistance(double v, double a, int t)
     {
         if (v < 0 || a < 0 || t < 0) { return -1; }
         return v * t + (a * t * t / 2);
@@ -128,7 +128,7 @@ public class Program
 
 
 
-    public static int FindMaxIndex(double[] array)
+    public int FindMaxIndex(double[] array)
     {
         int indexMax = 0;
         for (int i = 1; i < array.Length; i++)
@@ -139,7 +139,7 @@ public class Program
         return indexMax;
     }
 
-    public static double avgAfterMax(double[] numbers, int maxIndex)
+    public double avgAfterMax(double[] numbers, int maxIndex)
     {
         double sum = 0;
         int count = 0;
@@ -181,7 +181,7 @@ public class Program
 
 
 
-    public static int FindDiagonalMaxIndex(int[,] matrix)
+    public int FindDiagonalMaxIndex(int[,] matrix)
     {
         int indexMax = 0;
 
@@ -221,19 +221,19 @@ public class Program
 
 
 
-    public static int FindMax(int[] arr)
+    public int FindMax(int[] arr) // такой метод есть, но он работает только с double[]
     {
-        int iMax = 0;
+        int indexMax = 0;
 
         for (int i = 1; i < arr.Length; i++)
         {
-            if (arr[i] > arr[iMax]) iMax = i;
+            if (arr[i] > arr[indexMax]) { indexMax = i; }
         }
 
-        return iMax;
+        return indexMax;
     }
 
-    public static int[] DeleteElement(int[] array, int index)
+    public int[] DeleteElement(int[] array, int index)
     {
         int[] temp = new int[array.Length - 1];
 
@@ -277,7 +277,7 @@ public class Program
 
 
 
-    public static void SortArrayPart(int[] array, int startIndex)
+    public void SortArrayPart(int[] array, int startIndex)
     {
         for (int i = startIndex + 1, j = startIndex + 2; i < array.Length;)
         {
@@ -317,7 +317,7 @@ public class Program
 
 
 
-    public static int[,] RemoveColumn(int[,] matrix, int columnIndex)
+    public int[,] RemoveColumn(int[,] matrix, int columnIndex)
     {
         int rows = matrix.GetLength(0);
         int cols = matrix.GetLength(1);
@@ -333,7 +333,7 @@ public class Program
         }
         return result;
     }
-    public static int MaxIndexBelowDiag(int[,] matrix)
+    public int MaxIndexBelowDiag(int[,] matrix)
     {
         int maxRow = 1, maxCol = 0;
         for (int i = 1; i < matrix.GetLength(0); i++)
@@ -348,7 +348,7 @@ public class Program
         }
         return maxCol;
     }
-    public static int MinIndexAboveDiag(int[,] matrix)
+    public int MinIndexAboveDiag(int[,] matrix)
     {
         int minRow = 0, minCol = 1;
         for (int i = 0; i < matrix.GetLength(0); i++)
@@ -399,7 +399,7 @@ public class Program
 
 
 
-    public static int FindMaxColumnIndex(int[,] matrix)
+    public int FindMaxColumnIndex(int[,] matrix)
     {
         int indexMaxCol = 0, iMaxRow = 0;
 
@@ -438,7 +438,7 @@ public class Program
 
 
 
-    public static void SortRow(int[,] matrix, int rowIndex)
+    public void SortRow(int[,] matrix, int rowIndex)
     {
         for (int i = 1, j = 2; i < matrix.GetLength(1);)
         {
@@ -481,7 +481,7 @@ public class Program
 
 
 
-    public static int[] SortNegative(int[] array)
+    public int[] SortNegative(int[] array)
     {
         int count = 0;
 
@@ -549,7 +549,7 @@ public class Program
 
 
 
-    public static int[,] SortDiagonal(int[,] matrix)
+    public int[,] SortDiagonal(int[,] matrix)
     {
 
 
@@ -592,7 +592,7 @@ public class Program
 
 
 
-    public static int[,] RemoveColumns(int[,] matrix)
+    public int[,] RemoveColumns(int[,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
@@ -632,7 +632,7 @@ public class Program
 
 
 
-    public static int CountNegativeInRow(int[,] matrix, int rowIndex)
+    public int CountNegativeInRow(int[,] matrix, int rowIndex)
     {
         int count = 0;
         for (int j = 0; j < matrix.GetLength(1); j++)
@@ -643,7 +643,7 @@ public class Program
         return count;
     }
 
-    public static int FindMaxNegativePerColumn(int[,] matrix, int colIndex)
+    public int FindMaxNegativePerColumn(int[,] matrix, int colIndex)
     {
         int rowIndex = -1;
 
@@ -692,7 +692,7 @@ public class Program
 
 
 
-    public static void SwapColumnDiagonal(int[,] matrix, int columnIndex)
+    public void SwapColumnDiagonal(int[,] matrix, int columnIndex)
     {
         for (int i = 0; i < matrix.GetLength(0); i++)
         {
@@ -726,7 +726,7 @@ public class Program
 
 
 
-    public static int FindRowWithMaxNegativeCount(int[,] matrix)
+    public int FindRowWithMaxNegativeCount(int[,] matrix)
     {
         int[] count = new int[matrix.GetLength(0)];
         int indexMaxNegRow = 0;
@@ -747,7 +747,7 @@ public class Program
         return indexMaxNegRow;
     }
 
-    public static void SwapRows(int[,] A, int rowA, int[,] B, int rowB)
+    public void SwapRows(int[,] A, int rowA, int[,] B, int rowB)
     {
         for (int j = 0; j < A.GetLength(1); j++)
         {
@@ -779,7 +779,7 @@ public class Program
 
 
 
-    public static int FindSequence(int[] array, int A, int B)
+    public int FindSequence(int[] array, int A, int B)
     {
         int dec = 0;
         int inc = 0;
@@ -808,7 +808,7 @@ public class Program
     }
 
 
-    public static int[,] FindAllIntervals(int[] array)
+    public int[,] FindAllIntervals(int[] array)
     {
         int count = 0;
 
@@ -849,7 +849,7 @@ public class Program
 
 
 
-    public static int[] FindTheLongestInterval(int[] array)
+    public int[] FindTheLongestInterval(int[] array)
     {
         int[] result = new int[] { 0, 1 };
 
@@ -1138,59 +1138,9 @@ public class Program
 
     public void Task_3_7(ref int[,] B, int[,] C)
     {
-        int maxRowCount = int.MinValue, maxColCount = int.MinValue;
-        int maxRowPos = 0, maxColPos = 0;
-
-        CountPositive counter = CountRowPositive;
-
-        for (int i = 0; i < B.GetLength(0); i++)
-        {
-            int count = counter(B, i);
-            if (count > maxRowCount)
-            {
-                maxRowCount = count;
-                maxRowPos = i;
-            }
-        }
-
-        counter = CountColumnPositive;
-
-        for (int j = 0; j < C.GetLength(1); j++)
-        {
-            int count = counter(C, j);
-            if (count > maxColCount)
-            {
-                maxColCount = count;
-                maxColPos = j;
-            }
-        }
-
-        InsertColumn(ref B, maxRowPos, C, maxColPos);
-    }
-    public static int CountRowPositive(int[,] matrix, int rowIndex)
-    {
-        int answer = 0;
-
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            if (matrix[rowIndex, j] > 0) answer++;
-        }
-
-        return answer;
-    }
-    public static int CountColumnPositive(int[,] matrix, int colIndex)
-    {
-        int answer = 0;
-
-        for (int i = 0; i < matrix.GetLength(0); i++)
-        {
-            if (matrix[i, colIndex] > 0) answer++;
-        }
-
-        return answer;
 
     }
-
+    
 
 
 
